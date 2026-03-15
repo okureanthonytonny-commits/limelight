@@ -1,0 +1,25 @@
+limelight-project/
+├── docker-compose.yml       # Runs all parts together on your Ubuntu PC
+│
+├── backend/                 # FastAPI (Python)
+│   ├── main.py              # The app's starting point
+│   ├── database.py          # PostgreSQL connection logic
+│   ├── models.py            # Database tables (Products, Orders, Users)
+│   └── routers/             # The API endpoints
+│       ├── store.py         # Search, View Categories, Checkout
+│       └── admin.py         # Add Products, Update Delivery Status
+│
+├── frontend-store/          # React + Vite (For Customers)
+│   ├── src/
+│   │   ├── components/      # Reusable UI (Search Bar, Cart Modal)
+│   │   ├── pages/           # Full screens (Home, Checkout, Tracking)
+│   │   ├── hooks/           # React Query (fetching and caching categories)
+│   │   └── state/           # Cart logic (saving to LocalStorage)
+│   └── package.json         # Frontend dependencies
+│
+└── frontend-admin/          # React + Vite (For You/The Owner)
+    ├── src/
+    │   ├── components/      # Admin UI (Sidebar, Tables)
+    │   ├── pages/           # Full screens (Dashboard, Manage Orders)
+    │   └── hooks/           # API calls to backend
+    └── package.json         # Admin dependencies

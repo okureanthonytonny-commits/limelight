@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "tables": [
+    {
+      "name": "users",
+      "columns": [
+        { "name": "id", "type": "SERIAL", "primary_key": true },
+        { "name": "username", "type": "VARCHAR(50)", "unique": true },
+        { "name": "password_hash", "type": "VARCHAR(255)" }
+      ]
+    },
+    {
+      "name": "products",
+      "columns": [
+        { "name": "id", "type": "SERIAL", "primary_key": true },
+        { "name": "name", "type": "VARCHAR(255)" },
+        { "name": "description", "type": "TEXT" },
+        { "name": "price", "type": "NUMERIC(10,2)" },
+        { "name": "image_url", "type": "VARCHAR(255)" }
+      ]
+    }
+  ]
+}

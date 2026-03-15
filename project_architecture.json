@@ -1,0 +1,33 @@
+{
+  "project": "Limelight MVP",
+  "architecture": "Dual Frontend & API",
+  "frontend": {
+    "framework": "React (Vite)",
+    "apps": [
+      "frontend-store",
+      "frontend-admin"
+    ],
+    "routing": "react-router-dom",
+    "styling": "React Bootstrap",
+    "api_fetching": "Native fetch API"
+  },
+  "backend": {
+    "framework": "FastAPI",
+    "language": "Python",
+    "database_engine": "PostgreSQL",
+    "orm": "SQLModel",
+    "migrations": "Alembic"
+  },
+  "authentication": {
+    "type": "Session-based",
+    "login_method": "OAuth",
+    "token_storage": "HttpOnly Secure Cookies",
+    "client_state": "localStorage"
+  },
+  "infrastructure": {
+    "version_control": "GitHub",
+    "frontend_hosting": "Vercel",
+    "backend_hosting": "Render",
+    "containerization": "Docker (Final Testing/Deployment Only)"
+  }
+}
