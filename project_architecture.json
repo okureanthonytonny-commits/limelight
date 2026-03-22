@@ -20,14 +20,44 @@
   },
   "authentication": {
     "type": "Session-based",
-    "login_method": "OAuth",
+    "login_method": "OAuth (Google, etc.)",
+    "session_storage": "PostgreSQL (sessions table)",
     "token_storage": "HttpOnly Secure Cookies",
-    "client_state": "localStorage"
+    "client_state": "localStorage (non-sensitive user info)"
+  },
+  "data_model": {
+    "users": "single table with role field (customer/admin), optional profile tables later",
+    "role_enum": ["customer", "admin"],
+    "products": "table with fields: id, name, description, price, image_url, stock, created_at, updated_at",
+    "orders": "table with fields: id, user_id, status (pending, confirmed, shipped, delivered, cancelled), created_at, updated_at, items (JSON or relation)",
+    "cart_items": "table for persisted cart (user_id, product_id, quantity)",
+    "hero_sections": "table or settings JSON for admin-editable hero content"
+  },
+  "cart": {
+    "persistence": "backend (cart_items table) for cross‑device sync",
+    "client_cache": "localStorage for network hiccups"
+  },
+  "image_handling": {
+    "client_compression": "browser-image-compression with max file size",
+    "storage": "compressed only; local static files during development, cloud storage (free tier, e.g., Cloudinary) for production testing"
+  },
+  "testing": {
+    "backend": "pytest with FastAPI TestClient (critical paths: auth, product listing, order creation, admin actions)",
+    "frontend": "Vitest + React Testing Library (cart logic, form validation)",
+    "e2e": "Playwright for critical flows (login, browse, add to cart, checkout)",
+    "security": "basic checks (OWASP top 10: XSS, CSRF, SQLi) – focus on authentication and role enforcement"
+  },
+  "error_handling": {
+    "global_exception_handlers": true,
+    "user_friendly_messages": true,
+    "fallback_page": "simple static error page for downtime"
   },
   "infrastructure": {
     "version_control": "GitHub",
     "frontend_hosting": "Vercel",
     "backend_hosting": "Render",
-    "containerization": "Docker (Final Testing/Deployment Only)"
+    "containerization": "Docker (final testing/deployment only)",
+    "environment_config": ".env with Pydantic settings",
+    "deployment_notes": "Free tiers used initially; cloud storage added when testing on public web"
   }
 }
