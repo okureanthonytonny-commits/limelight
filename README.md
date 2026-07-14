@@ -1,4 +1,4 @@
-# limelight/README.md
+# Limelight
 
 ## One-line description
 A single-vendor marketplace prototype (React frontends + FastAPI backend) — the first, exploratory iteration of a marketplace concept, rebuilt as `limelight_v2` after hitting scalability issues.
